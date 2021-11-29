@@ -49,8 +49,7 @@ const getGifFromLink = async (url) => {
         const $ = cheerio.load(response);
         const gifUrl = $(`div.Gif`).find("img").attr("src");
 
-        if (gifUrl) return gifUrl;
-        else return null;
+        return gifUrl ? gifUrl : null;
     } catch (error) {
         console.log(error);
         return null;
